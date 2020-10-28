@@ -1,27 +1,32 @@
-#ifndef HEXAGON_H
-#define HEXAGON_H
+#pragma once
 
 #include "Point.h"
+#include <vector>
+
+
 
 class Hexagon
 {
 public :
-	Hexagon(const Point& upLeft, const Point& upRight, const Point& left, const Point& right, const Point& downLeft, const Point& downRight);
-	Point getUpLeft() const;
+	Hexagon(const Point& center, double radius);
+
+	Point getUp() const;
+
 	Point getUpRight() const;
-	Point getLeft() const;
-	Point getRight() const;
-	Point getDownLeft() const;
+
 	Point getDownRight() const;
 
+	Point getDown() const;
+
+	Point getDownLeft() const;
+
+	Point getUpLeft() const;
+
+	Point operator[](int i)const;
+	
 
 private :
-	Point _upLeft;
-	Point _upRight;
-	Point _left;
-	Point _right;
-	Point _downLeft;
-	Point _downRight;
+	std::vector<Point> _listPoint;
+	static constexpr double const& PI = 3.14159265358979323846264338327950288419716939937510582097494459230781640628620899862803482534211706798214808651328230664709384460955058223172535940812848111745028410270193852110555964462294895493038196;
+	double _radius;
 };
-
-#endif

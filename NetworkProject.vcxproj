@@ -155,9 +155,9 @@
     <ClCompile Include="Clock.cpp" />
     <ClCompile Include="Hexagon.cpp" />
     <ClCompile Include="Mesh.cpp" />
-    <ClCompile Include="NetworkProject.cpp" />
     <ClCompile Include="Point.cpp" />
     <ClCompile Include="Simulation.cpp" />
+    <ClCompile Include="testFabian.cpp" />
     <ClCompile Include="Way.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -167,6 +167,7 @@
     <ClInclude Include="Mesh.h" />
     <ClInclude Include="Point.h" />
     <ClInclude Include="Simulation.h" />
+    <ClInclude Include="test\doctest.h" />
     <ClInclude Include="Way.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
