@@ -155,6 +155,7 @@
     <ClCompile Include="Clock.cpp" />
     <ClCompile Include="Hexagon.cpp" />
     <ClCompile Include="Mesh.cpp" />
+    <ClCompile Include="MeshLines.cpp" />
     <ClCompile Include="Point.cpp" />
     <ClCompile Include="Simulation.cpp" />
     <ClCompile Include="testFabian.cpp" />
@@ -165,6 +166,7 @@
     <ClInclude Include="Clock.h" />
     <ClInclude Include="Hexagon.h" />
     <ClInclude Include="Mesh.h" />
+    <ClInclude Include="MeshLines.h" />
     <ClInclude Include="Point.h" />
     <ClInclude Include="Simulation.h" />
     <ClInclude Include="test\doctest.h" />

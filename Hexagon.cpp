@@ -6,7 +6,7 @@ Hexagon::Hexagon(const Point& center, double radius) : _radius{radius}
 {	
 	
 	double numPoints = 6.0;
-
+	_listPoint.reserve(static_cast<int> (numPoints));
 	//radian
 	double angle = 2.0* PI / numPoints;
 	//double angle = (PI/180.0)*60;
