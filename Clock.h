@@ -6,7 +6,9 @@ class Clock
 {
 public :
 	Clock();
-
+	void start();
+	//void time(); //What type does this return ?
+	void stop();
 private :
 
 };
