@@ -19,8 +19,8 @@ public:
 	double getFrequency();
 
 	//Functions used for the Free space propagation model
-	double getDensityOfStrength(double antennaGain, double distanceFromTransmettor);
-	double getAvailableStrength(double antennaGain, double distanceFromTransmettor, double antennaEffectiveArea);
+	double getDensityOfStrength(double distanceFromTransmettor);
+	double getAvailableStrength(double distanceFromTransmettor);
 	
 	//The following function should propably be on the receiver, not the sender
 	double getSignalAttenuation(double emettorStrength, double receivedStrength);
@@ -31,10 +31,9 @@ private:
 	double _strength;
 	double _frequency;
 
-	/*
-	* No value for the Free space propagation model, as it use values from the transmettor and
-	* the receptor
-	*/
+	//Value for the Free space propagation model
+	double _antennaGain;
+	double _antennaEffectiveArea;
 };
 
 #endif

@@ -42,14 +42,14 @@ double Wave::getFrequency()
 // Free space propagation model //
 //////////////////////////////////
 
-double Wave::getDensityOfStrength(double antennaGain, double distanceFromTransmettor)
+double Wave::getDensityOfStrength(double distanceFromTransmettor)
 {
-	return (_strength * antennaGain) / (4 * PI * (distanceFromTransmettor * distanceFromTransmettor));
+	return (_strength * _antennaGain) / (4 * PI * (distanceFromTransmettor * distanceFromTransmettor));
 }
 
-double Wave::getAvailableStrength(double antennaGain, double distanceFromTransmettor, double antennaEffectiveArea)
+double Wave::getAvailableStrength(double distanceFromTransmettor)
 {
-	return ((_strength * antennaGain) / (4 * PI * (distanceFromTransmettor * distanceFromTransmettor))) * antennaEffectiveArea;
+	return ((_strength * _antennaGain) / (4 * PI * (distanceFromTransmettor * distanceFromTransmettor))) * _antennaEffectiveArea;
 }
 
 double Wave::getSignalAttenuation(double emettorStrength, double receivedStrength)
