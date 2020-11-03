@@ -1,5 +1,7 @@
 #include "Wave.h"
 
+const double PI = 3.14159265359;
+
 Wave::Wave()
 {}
 
@@ -34,4 +36,23 @@ double Wave::getStrength()
 double Wave::getFrequency()
 {
 	return _frequency;
+}
+
+//////////////////////////////////
+// Free space propagation model //
+//////////////////////////////////
+
+double Wave::getDensityOfStrength(double antennaGain, double distanceFromTransmettor)
+{
+	return (_strength * antennaGain) / (4 * PI * (distanceFromTransmettor * distanceFromTransmettor));
+}
+
+double Wave::getAvailableStrength(double antennaGain, double distanceFromTransmettor, double antennaEffectiveArea)
+{
+	return ((_strength * antennaGain) / (4 * PI * (distanceFromTransmettor * distanceFromTransmettor))) * antennaEffectiveArea;
+}
+
+double Wave::getSignalAttenuation(double emettorStrength, double receivedStrength)
+{
+	return emettorStrength / receivedStrength;
 }
