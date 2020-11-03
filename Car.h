@@ -2,13 +2,16 @@
 #define CAR_H
 
 #include "Point.h"
+#include "Wave.h"
 
 class Car
 {
     public :
-        Car(const Point &CarPosition);
+        Car(const Point &CarPosition, const Wave &WaveCom);
 
         Point CarPosition() const;
+
+        Wave CarWaveComunication() const;
 
         void CarMovingOn(const Point &MovePoint);
 
@@ -16,7 +19,7 @@ class Car
 
     private :
         Point _PositionOfCar;
-
+        Wave _WaveComunication;
 };
 
 #endif

@@ -8,7 +8,9 @@ using namespace std ;
 int main()
 {
     Point CarDepart{100, 400};
-    Car Auto{CarDepart};
+    Wave wave{5, 10, 15};
+
+    Car Auto{CarDepart, wave};
 
     cout << "La position de la voiture a la creation est : " ;
 
@@ -19,6 +21,10 @@ int main()
     // Solution 2
     //cout << "(" << Auto.CarPosition().getX() << "," << Auto.CarPosition().getY() << ")";
 
+    cout << "La vague a les caracteristiques suivantes : \n";
+    cout << "Rayon : " << wave.getRayon() << endl;
+    cout << "Force : " << wave.getStrength() << endl;
+    cout << "Frequence : " << wave.getFrequency() << endl;
     cout << endl;
 
     cout << "apres le move au point (400, 100) : ";
