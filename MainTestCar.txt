@@ -1,0 +1,30 @@
+#include <iostream>
+
+#include "Car.h"
+#include "Point.h"
+
+using namespace std ;
+
+int main()
+{
+    Point CarDepart{100, 400};
+    Car Auto{CarDepart};
+
+    cout << "La position de la voiture a la creation est : " ;
+
+    // Solution 1
+    Point Position{Auto.CarPosition()};
+    cout << "(" << Position.getX() << "," << Position.getY() << ")";
+
+    // Solution 2
+    //cout << "(" << Auto.CarPosition().getX() << "," << Auto.CarPosition().getY() << ")";
+
+    cout << endl;
+
+    cout << "apres le move au point (400, 100) : ";
+    Point CarMoved{400, 100};
+    Auto.CarMovingOn(CarMoved);
+    cout << "(" << Auto.CarPosition().getX() << "," << Auto.CarPosition().getY() << ")";
+
+    return 0;
+}

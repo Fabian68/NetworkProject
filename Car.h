@@ -1,14 +1,21 @@
 #ifndef CAR_H
 #define CAR_H
 
+#include "Point.h"
 
 class Car
 {
-public :
-	Car();
+    public :
+        Car(const Point &CarPosition);
 
+        Point CarPosition() const;
 
-private :
+        void CarMovingOn(const Point &MovePoint);
+
+        void CarComunicating(const Car &OtherCar);
+
+    private :
+        Point _PositionOfCar;
 
 };
 
