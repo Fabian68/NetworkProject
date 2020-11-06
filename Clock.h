@@ -1,16 +1,21 @@
 #ifndef CLOCK_H
 #define CLOCK_H
 
+#include <iostream>
+#include <chrono>
+using namespace std;
 
 class Clock
 {
 public :
-	Clock();
+	Clock(int hourStart = 0);
 	void start();
-	//void time(); //What type does this return ?
+	string toString();
+	double time();
 	void stop();
 private :
-
+	chrono::duration<double> _totalTime;
+	chrono::steady_clock::time_point _startedTime;
 };
 
 #endif
