@@ -2,9 +2,9 @@
 #include <algorithm>
 
 
-Hexagon::Hexagon(const Point& center, double radius) : _radius{radius}
+Hexagon::Hexagon(const Point& center, double radius, std::vector<double> color) : _radius{radius}
 {	
-	
+	_color = color;
 	double numPoints = 6.0;
 	_listPoint.reserve(static_cast<int> (numPoints));
 	//radian
@@ -60,4 +60,9 @@ Point Hexagon::getUpLeft() const
 Point  Hexagon::operator[](int i)const 
 {
 	return _listPoint[i];
+}
+
+std::vector<double> Hexagon::getColor()
+{
+	return _color;
 }
