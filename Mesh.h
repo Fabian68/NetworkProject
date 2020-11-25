@@ -1,14 +1,14 @@
-#ifndef MESH_H
-#define MESH_H
+#pragma once
+#include "MeshLines.h"
 
 class Mesh
 {
 public :
-	Mesh();
+	Mesh(const Point & FirstCenter,double radius,int lineSize,int colSize);
 
-
+	MeshLines operator[](int i )const;
 private :
-
+	int _colSize;
+	std::vector<MeshLines> _column;
 };
 
-#endif

@@ -1,0 +1,36 @@
+#include <iostream>
+
+#include "Car.h"
+#include "Point.h"
+
+using namespace std ;
+
+int main()
+{
+    Point CarDepart{100, 400};
+    Wave wave{5, 10, 15};
+
+    Car Auto{CarDepart, wave};
+
+    cout << "La position de la voiture a la creation est : " ;
+
+    // Solution 1
+    Point Position{Auto.CarPosition()};
+    cout << "(" << Position.getX() << "," << Position.getY() << ")";
+
+    // Solution 2
+    //cout << "(" << Auto.CarPosition().getX() << "," << Auto.CarPosition().getY() << ")";
+
+    cout << "La vague a les caracteristiques suivantes : \n";
+    cout << "Rayon : " << wave.getRayon() << endl;
+    cout << "Force : " << wave.getStrength() << endl;
+    cout << "Frequence : " << wave.getFrequency() << endl;
+    cout << endl;
+
+    cout << "apres le move au point (400, 100) : ";
+    Point CarMoved{400, 100};
+    Auto.CarMovingOn(CarMoved);
+    cout << "(" << Auto.CarPosition().getX() << "," << Auto.CarPosition().getY() << ")";
+
+    return 0;
+}
