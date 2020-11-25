@@ -66,3 +66,9 @@ std::vector<double> Hexagon::getColor()
 {
 	return _color;
 }
+
+void Hexagon::setColor(std::vector<double> color)
+{
+	_color = color;;
+}
+
