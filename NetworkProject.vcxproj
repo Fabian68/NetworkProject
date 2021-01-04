@@ -151,26 +151,28 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Car.cpp" />
-    <ClCompile Include="Clock.cpp" />
-    <ClCompile Include="Hexagon.cpp" />
-    <ClCompile Include="Mesh.cpp" />
-    <ClCompile Include="MeshLines.cpp" />
-    <ClCompile Include="Point.cpp" />
-    <ClCompile Include="Simulation.cpp" />
-    <ClCompile Include="testFabian.cpp" />
-    <ClCompile Include="Way.cpp" />
+    <ClInclude Include="Mesh.h" />
+    <ClInclude Include="Modele\Car.h" />
+    <ClInclude Include="Modele\Clock.h" />
+    <ClInclude Include="Modele\Hexagon.h" />
+    <ClInclude Include="Modele\MeshLines.h" />
+    <ClInclude Include="Modele\Point.h" />
+    <ClInclude Include="Modele\Simulation.h" />
+    <ClInclude Include="Modele\Wave.h" />
+    <ClInclude Include="Modele\Way.h" />
+    <ClInclude Include="test\doctest.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Car.h" />
-    <ClInclude Include="Clock.h" />
-    <ClInclude Include="Hexagon.h" />
-    <ClInclude Include="Mesh.h" />
-    <ClInclude Include="MeshLines.h" />
-    <ClInclude Include="Point.h" />
-    <ClInclude Include="Simulation.h" />
-    <ClInclude Include="test\doctest.h" />
-    <ClInclude Include="Way.h" />
+    <ClCompile Include="Modele\Car.cpp" />
+    <ClCompile Include="Modele\Clock.cpp" />
+    <ClCompile Include="Modele\Hexagon.cpp" />
+    <ClCompile Include="Modele\Mesh.cpp" />
+    <ClCompile Include="Modele\MeshLines.cpp" />
+    <ClCompile Include="Modele\Point.cpp" />
+    <ClCompile Include="Modele\Simulation.cpp" />
+    <ClCompile Include="Modele\testFabian.cpp" />
+    <ClCompile Include="Modele\Wave.cpp" />
+    <ClCompile Include="Modele\Way.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

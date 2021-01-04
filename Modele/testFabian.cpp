@@ -1,5 +1,5 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
-#include "test/doctest.h"
+#include "../test/doctest.h"
 #include "Mesh.h"
 
 TEST_CASE("Un Hexagon ce construit correctement") {
