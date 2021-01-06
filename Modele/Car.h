@@ -26,6 +26,8 @@ class Car
 
         void CarMovingOn(const Point &MovePoint);
 
+        bool Communicating(const Car &OtherCar);
+
         void AddCarCommunicating(const Car &OtherCar);
 
         void DeleteCarCommunicating();

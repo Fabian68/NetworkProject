@@ -36,9 +36,17 @@ void Car::CarMovingOn(const Point &MovePoint)
     _PositionOfCar = MovePoint;
 }
 
+bool Car::Communicating(const Car &OtherCar)
+{
+    // La voiture peut-elle communiquer avec l'autre ?
+}
+
 void Car::AddCarCommunicating(const Car &OtherCar)
 {
-    // Calcul si on peut communiquer avec l'autre voiture
+    if(Communicating(OtherCar))
+    {
+        // Ajout dans le vecteur
+    }
 }
 
 void Car::DeleteCarCommunicating()
