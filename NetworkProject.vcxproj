@@ -154,7 +154,7 @@
     <ClInclude Include="Modele\Car.h" />
     <ClInclude Include="Modele\Clock.h" />
     <ClInclude Include="Modele\Hexagon.h" />
-    <ClInclude Include="Modele\Map.h" />
+    <ClInclude Include="Modele\Mapping.h" />
     <ClInclude Include="Modele\Mesh.h" />
     <ClInclude Include="Modele\MeshLines.h" />
     <ClInclude Include="Modele\Node.h" />
@@ -168,7 +168,7 @@
     <ClCompile Include="Modele\Car.cpp" />
     <ClCompile Include="Modele\Clock.cpp" />
     <ClCompile Include="Modele\Hexagon.cpp" />
-    <ClCompile Include="Modele\Map.cpp" />
+    <ClCompile Include="Modele\Mapping.cpp" />
     <ClCompile Include="Modele\Mesh.cpp" />
     <ClCompile Include="Modele\MeshLines.cpp" />
     <ClCompile Include="Modele\Node.cpp" />

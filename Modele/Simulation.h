@@ -4,10 +4,11 @@
 #include "Car.h"
 #include "Way.h"
 #include "Node.h"
+#include "Mapping.h"
 
 class Simulation
 {
-	friend class Map;
+	
 public :
 	Simulation();
 	Car operator[](int i)const;
@@ -22,6 +23,9 @@ private :
 	int _meshRadius;
 	int _colSizeMesh;
 	int _lineSizeMesh;
+
+	Mapping* _mapping;
+	friend class Mapping;
 };
 
 

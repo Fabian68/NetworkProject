@@ -3,13 +3,15 @@
 Simulation::Simulation()
 {
 	_cars.reserve(100);
-	_ways.reserve(1000);
+	_ways.reserve(100);
+	_nodes.reserve(100);
 	Point Origine = Point(5.0, 5.0);
 	_meshRadius = 50;
 	_colSizeMesh = 300;
 	_lineSizeMesh = 300;
 	// 300x300 Hexagones de 50 metres de circonférence
 	_mesh = Mesh(Origine, _meshRadius, _lineSizeMesh, _colSizeMesh);
+	_mapping = new Mapping("map.txt", *this);
 }
 
 Car Simulation::operator[](int i) const
