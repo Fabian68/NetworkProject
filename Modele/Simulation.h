@@ -14,6 +14,9 @@ public :
 	Car operator[](int i)const;
 	int getNumberOfCars()const;
 	Mesh getMesh();
+	std::vector<Way*> getWays();
+	std::vector<Node*> getNodes();
+
 	//Way operator[](int i)const; non possible classe vide
 private :
 	std::vector<Car> _cars;
@@ -25,7 +28,6 @@ private :
 	int _lineSizeMesh;
 
 	Mapping* _mapping;
-	friend class Mapping;
 };
 
 

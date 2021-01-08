@@ -8,7 +8,7 @@ Node::Node(int id, int x, int y) : Point{x,y}, _id{id}, _connectedWays(0)
 
 Node::~Node()
 {
-    //dtor
+    //todo
 }
 
 int Node::getId() const

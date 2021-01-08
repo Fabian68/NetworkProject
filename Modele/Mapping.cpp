@@ -20,6 +20,8 @@ bool Mapping::extractMapForSimulation(Simulation& simulation)
 	std::ifstream mapFile{ _mapFileName };
 	if (!mapFile.is_open()) return false;
 
+	// Fill Node and Way vectors with the map file
+
 	char indic;
 	mapFile >> indic;
 	if (indic == 'n')
@@ -30,7 +32,7 @@ bool Mapping::extractMapForSimulation(Simulation& simulation)
 		{
 			int id, x, y;
 			mapFile >> id >> x >> y;
-			simulation._nodes.push_back(new Node(id, x, y));
+			simulation.getNodes().push_back(new Node(id, x, y));
 		}
 	}
 
@@ -43,7 +45,7 @@ bool Mapping::extractMapForSimulation(Simulation& simulation)
 		{
 			int id, idNode1, idNode2;
 			mapFile >> id >> idNode1 >> idNode2;
-			simulation._ways.push_back( new Way(id, simulation._nodes[idNode1], simulation._nodes[idNode2]) );
+			simulation.getWays().push_back( new Way(id, simulation.getNodes()[idNode1], simulation.getNodes()[idNode2]) );
 		}
 	}
 

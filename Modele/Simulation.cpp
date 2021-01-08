@@ -28,3 +28,13 @@ Mesh Simulation::getMesh()
 {
 	return _mesh;
 }
+
+std::vector<Way*> Simulation::getWays()
+{
+	return _ways;
+}
+
+std::vector<Node*> Simulation::getNodes()
+{
+	return _nodes;
+}

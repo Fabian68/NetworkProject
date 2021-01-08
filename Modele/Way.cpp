@@ -2,6 +2,9 @@
 
 Way::Way(int id, Node* node1, Node* node2) : _id{ id }, _node1 { node1 }, _node2{ node2 }
 {
+	// Add the current way to the nodes
+	_node1->getConnectedWays().push_back(this);
+	_node2->getConnectedWays().push_back(this);
 }
 
 Way::~Way()
