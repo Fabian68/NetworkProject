@@ -39,6 +39,7 @@ void Car::CarMovingOn(const Point &MovePoint)
 bool Car::Communicating(const Car &OtherCar)
 {
     // La voiture peut-elle communiquer avec l'autre ?
+    return true;
 }
 
 void Car::AddCarCommunicating(const Car &OtherCar)

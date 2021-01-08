@@ -3,9 +3,11 @@
 #include "Mesh.h"
 #include "Car.h"
 #include "Way.h"
+#include "Node.h"
 
 class Simulation
 {
+	friend class Map;
 public :
 	Simulation();
 	Car operator[](int i)const;
@@ -14,7 +16,8 @@ public :
 	//Way operator[](int i)const; non possible classe vide
 private :
 	std::vector<Car> _cars;
-	std::vector<Way> _ways;
+	std::vector<Way*> _ways;
+	std::vector<Node*> _nodes;
 	Mesh _mesh;
 	int _meshRadius;
 	int _colSizeMesh;
