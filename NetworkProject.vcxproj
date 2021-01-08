@@ -151,10 +151,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Mesh.h" />
     <ClInclude Include="Modele\Car.h" />
     <ClInclude Include="Modele\Clock.h" />
     <ClInclude Include="Modele\Hexagon.h" />
+    <ClInclude Include="Modele\Mesh.h" />
     <ClInclude Include="Modele\MeshLines.h" />
     <ClInclude Include="Modele\Node.h" />
     <ClInclude Include="Modele\Point.h" />

@@ -27,6 +27,10 @@ Mesh::Mesh(const Point& FirstCenter, double radius, int lineSize, int colSize) :
 
 }
 
+Mesh::Mesh()
+{
+}
+
 MeshLines Mesh::operator[](int i) const
 {
 	return _column[i];
