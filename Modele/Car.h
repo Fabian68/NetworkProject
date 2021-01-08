@@ -5,6 +5,10 @@
 #include "Wave.h"
 #include "Way.h"
 
+#include <vector>
+
+using namespace std;
+
 class Car
 {
     public :
@@ -18,9 +22,15 @@ class Car
 
         double Speed() const;
 
+        vector<Car> CarCommunicate() const;
+
         void CarMovingOn(const Point &MovePoint);
 
-        void CarComunicating(const Car &OtherCar);
+        bool Communicating(const Car &OtherCar);
+
+        void AddCarCommunicating(const Car &OtherCar);
+
+        void DeleteCarCommunicating();
 
         void SetCarWay(const Way &OtherWay);
 
@@ -31,6 +41,7 @@ class Car
         Wave _WaveComunication;
         Way _Way;
         double _Speed;
+        vector<Car> _CommunicationVToV;
 };
 
 #endif

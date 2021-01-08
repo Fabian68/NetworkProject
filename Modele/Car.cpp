@@ -1,7 +1,9 @@
 #include "Car.h"
 
 Car::Car(const Point &CarPosition, const Wave &WaveCom, const Way &way, double speed) : _PositionOfCar{CarPosition}, _WaveComunication{WaveCom}, _Way{way}, _Speed{speed}
-{}
+{
+    Car::_CommunicationVToV.reserve(100);
+}
 
 Point Car::CarPosition() const
 {
@@ -23,15 +25,39 @@ double Car::Speed() const
     return _Speed;
 }
 
+vector<Car> Car::CarCommunicate() const
+{
+    return _CommunicationVToV;
+}
+
 void Car::CarMovingOn(const Point &MovePoint)
 {
     Point OldPosition = CarPosition();
     _PositionOfCar = MovePoint;
 }
 
-void Car::CarComunicating(const Car &OtherCar)
+bool Car::Communicating(const Car &OtherCar)
 {
-    // ???
+    // La voiture peut-elle communiquer avec l'autre ?
+}
+
+void Car::AddCarCommunicating(const Car &OtherCar)
+{
+    if(Communicating(OtherCar))
+    {
+        // Ajout dans le vecteur
+    }
+}
+
+void Car::DeleteCarCommunicating()
+{
+    if(!_CommunicationVToV.empty())
+    {
+        for(int i = 0 ; i < _CommunicationVToV.size() ; i++)
+        {
+            // Test si la voiture en [i] peut communiquer
+        }
+    }
 }
 
 void Car::SetCarWay(const Way &OtherWay)

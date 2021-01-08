@@ -151,11 +151,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Mesh.h" />
     <ClInclude Include="Modele\Car.h" />
     <ClInclude Include="Modele\Clock.h" />
     <ClInclude Include="Modele\Hexagon.h" />
+    <ClInclude Include="Modele\Mesh.h" />
     <ClInclude Include="Modele\MeshLines.h" />
+    <ClInclude Include="Modele\Node.h" />
     <ClInclude Include="Modele\Point.h" />
     <ClInclude Include="Modele\Simulation.h" />
     <ClInclude Include="Modele\Wave.h" />
@@ -168,6 +169,7 @@
     <ClCompile Include="Modele\Hexagon.cpp" />
     <ClCompile Include="Modele\Mesh.cpp" />
     <ClCompile Include="Modele\MeshLines.cpp" />
+    <ClCompile Include="Modele\Node.cpp" />
     <ClCompile Include="Modele\Point.cpp" />
     <ClCompile Include="Modele\Simulation.cpp" />
     <ClCompile Include="Modele\testFabian.cpp" />
