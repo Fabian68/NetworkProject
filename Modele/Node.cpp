@@ -8,13 +8,17 @@ Node::Node(int id, int x, int y) : Point{x,y}, _id{id}, _connectedWays(0)
 
 Node::~Node()
 {
-    //todo
+    for (int i = 0; i < _connectedWays.size(); i++)
+    {
+        delete _connectedWays[i];
+    }
 }
 
 int Node::getId() const
 {
     return _id;
 }
+
 
 vector<Way*> Node::getConnectedWays()
 {

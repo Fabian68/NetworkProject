@@ -11,6 +11,9 @@ public :
 	int getId() const;
 	Node* getNode1();
 	Node* getNode2();
+	int slopeX() const;
+	int slopeY() const;
+	double slopeCoefficient() const;
 
 private :
 	int _id;

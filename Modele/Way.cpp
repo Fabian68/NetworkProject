@@ -9,7 +9,8 @@ Way::Way(int id, Node* node1, Node* node2) : _id{ id }, _node1 { node1 }, _node2
 
 Way::~Way()
 {
-	//todo
+	if(_node1) delete _node1;
+	if(_node2) delete _node2;
 }
 
 int Way::getId() const
@@ -27,3 +28,17 @@ Node* Way::getNode2()
 	return _node2;
 }
 
+int Way::slopeX() const
+{
+	return _node2->getX() - _node1->getX();
+}
+
+int Way::slopeY() const
+{
+	return _node2->getY() - _node1->getY();
+}
+
+double Way::slopeCoefficient() const
+{
+	return slopeY() / slopeX();
+}

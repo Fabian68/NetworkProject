@@ -6,22 +6,28 @@
 #include "Node.h"
 #include "Mapping.h"
 
+using std::vector;
+
 class Simulation
 {
 	
 public :
 	Simulation();
-	Car operator[](int i)const;
+	~ Simulation();
+	//Car operator[](int i)const;
 	int getNumberOfCars()const;
 	Mesh getMesh();
-	std::vector<Way*> getWays();
-	std::vector<Node*> getNodes();
+	vector<Car*>& getCars();
+	vector<Node*>& getNodes();
+	vector<Way*>& getWays();
+
 
 	//Way operator[](int i)const; non possible classe vide
 private :
-	std::vector<Car> _cars;
-	std::vector<Way*> _ways;
-	std::vector<Node*> _nodes;
+	vector<Car*> _cars;
+	vector<Node*> _nodes;
+	vector<Way*> _ways;
+
 	Mesh _mesh;
 	int _meshRadius;
 	int _colSizeMesh;

@@ -15,8 +15,6 @@ class Node : public Point
         int getId() const;
         vector<Way*> getConnectedWays();
 
-    
-
     private:
         int _id;
         vector<Way*> _connectedWays;

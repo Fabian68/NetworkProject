@@ -10,7 +10,6 @@ public:
     Mapping(const std::string& mapFileName, Simulation& simulation);
     bool extractMapForSimulation(Simulation& simulation);
 
-
 private:
     std::string _mapFileName;
 };

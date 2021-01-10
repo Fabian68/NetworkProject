@@ -7,41 +7,50 @@
 
 #include <vector>
 
-using namespace std;
+using std::vector;
 
 class Car
 {
     public :
-        Car(const Point &CarPosition, const Wave &WaveCom, const Way &way, double speed);
+        Car(const Point &carPosition, const Wave &waveCom, const Way &way, int speed);
 
-        Point CarPosition() const;
+        Point getPosition() const;
 
-        Wave CarWaveComunication() const;
+        Wave getWaveCommunication() const;
 
-        Way CarOnWay() const;
+        Way getWay() const;
 
-        double Speed() const;
+        double getSpeed() const;
 
-        vector<Car> CarCommunicate() const;
+        bool endOfWay() const;
 
-        void CarMovingOn(const Point &MovePoint);
+        vector<Car*>& getConnectedCars();
 
-        bool Communicating(const Car &OtherCar);
+        void setPosition(int x, int y);
 
-        void AddCarCommunicating(const Car &OtherCar);
+        void setEndOfWay(bool endOfWay);
 
-        void DeleteCarCommunicating();
+        void setWay(const Way& newWay);
 
-        void SetCarWay(const Way &OtherWay);
+        void setSpeed(double newSpeed);
 
-        void SetSpeed(double NewSpeed);
+        void moveTo(const Point &newPosition);
+
+        bool communicating(const Car &OtherCar);
+
+        void addCarCommunicating(const Car &OtherCar);
+
+        void deleteCarCommunicating();
+
+        void moveOnTheWay(bool node1ToNode2);
 
     private :
-        Point _PositionOfCar;
-        Wave _WaveComunication;
-        Way _Way;
-        double _Speed;
-        vector<Car> _CommunicationVToV;
+        Point _position;
+        Wave _waveCommunication;
+        Way _way;
+        int _speed;
+        vector<Car*> _connectedCars;
+        bool _endOfWay;
 };
 
 #endif
