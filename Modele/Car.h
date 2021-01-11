@@ -44,7 +44,9 @@ class Car
 
         void deleteCarCommunicating();
 
-        void moveOnTheWay(bool node1ToNode2);
+        void moveOnTheWay();
+
+        void changeRoute(Node* endingNode, Way* finishedWay);
 
         double traveledDistanceOnTheWay() const; // from the starting node
 

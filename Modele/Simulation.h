@@ -20,7 +20,7 @@ public :
 	vector<Car*>& getCars();
 	vector<Node*>& getNodes();
 	vector<Way*>& getWays();
-	void addCar(Car*);
+	void addCar(Car* car);
 	//deleteCar method
 	//play
 	//stop

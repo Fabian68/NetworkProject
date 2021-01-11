@@ -1,4 +1,6 @@
 #include "Car.h"
+#include <ctime>
+#include <cstdlib>
 
 Car::Car(Node* startingNode, const Wave &waveCom, Way *way, int speed) : _position{startingNode->getX(), startingNode->getY()}, 
     _waveCommunication{waveCom}, _way{way}, _speed{speed}, _connectedCars(0), _endOfWay{false}, _startingNode{startingNode}
@@ -93,7 +95,7 @@ void Car::deleteCarCommunicating()
     }
 }
 
-void Car::moveOnTheWay(bool node1ToNode2)
+void Car::moveOnTheWay()
 {
     _position.moveOf(_way->slopeX(_startingNode) * _speed, _way->slopeY(_startingNode) * _speed);
 
@@ -106,6 +108,11 @@ void Car::moveOnTheWay(bool node1ToNode2)
     }
 
     
+}
+
+void Car::changeRoute(Node* endingNode, Way* finishedWay)
+{
+
 }
 
 double Car::traveledDistanceOnTheWay() const
