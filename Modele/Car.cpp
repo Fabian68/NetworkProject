@@ -1,7 +1,7 @@
 #include "Car.h"
 
-Car::Car(const Point &carPosition, const Wave &waveCom, const Way &way, int speed) : _position{carPosition}, _waveCommunication{waveCom},
-        _way{way}, _speed{speed}, _connectedCars(0), _endOfWay{false}
+Car::Car(Node* startingNode, const Wave &waveCom, Way *way, int speed) : _position{startingNode->getX(), startingNode->getY()}, 
+    _waveCommunication{waveCom}, _way{way}, _speed{speed}, _connectedCars(0), _endOfWay{false}, _startingNode{startingNode}
 {
     _connectedCars.reserve(100);
 }
@@ -16,7 +16,7 @@ Wave Car::getWaveCommunication() const
     return _waveCommunication;
 }
 
-Way Car::getWay() const
+Way* Car::getWay() const
 {
     return _way;
 }
@@ -46,10 +46,14 @@ void Car::setEndOfWay(bool endOfWay)
     _endOfWay = endOfWay;
 }
 
-void Car::setWay(const Way& newWay)
+void Car::setWay(Way* newWay)
 {
     _way = newWay;
-    //setPosition(?) ?
+}
+
+void Car::setStartingNode(Node* newStartingNode)
+{
+    _startingNode = newStartingNode;
 }
 
 void Car::setSpeed(double newSpeed)
@@ -91,20 +95,22 @@ void Car::deleteCarCommunicating()
 
 void Car::moveOnTheWay(bool node1ToNode2)
 {
-    Node* destination;
-    if (node1ToNode2)
+    _position.moveOf(_way->slopeX(_startingNode) * _speed, _way->slopeY(_startingNode) * _speed);
+
+    if (traveledDistanceOnTheWay() > _way->nodesDistance())
     {
-        destination = _way.getNode2();
-        _position.moveOf(_way.slopeX() * _speed, _way.slopeY() * _speed);
+        if (_startingNode == _way->getNode1()) setPosition(_way->getNode2()->getX(), _way->getNode2()->getY());
+        else setPosition(_way->getNode1()->getX(), _way->getNode1()->getY());
+
+        _endOfWay = true;
     }
 
-    else
-    {
-        destination = _way.getNode1();
-        _position.moveOf(-_way.slopeX() * _speed, -_way.slopeY() * _speed);
-    }
-
-    // if dépassé le remettre sur le node
     
+}
+
+double Car::traveledDistanceOnTheWay() const
+{
+    return sqrt((_position.getX() - _startingNode->getX()) * (_position.getX() - _startingNode->getX()) +
+        (_position.getY() - _startingNode->getY()) * (_position.getY() - _startingNode->getY()));
 }
 

@@ -11,9 +11,10 @@ public :
 	int getId() const;
 	Node* getNode1();
 	Node* getNode2();
-	int slopeX() const;
-	int slopeY() const;
-	double slopeCoefficient() const;
+	int slopeX(Node* startingNode) const;
+	int slopeY(Node* startingNode) const;
+	//double slopeCoefficient() const;
+	double nodesDistance() const;
 
 private :
 	int _id;
