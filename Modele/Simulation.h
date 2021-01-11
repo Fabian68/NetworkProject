@@ -20,7 +20,13 @@ public :
 	vector<Car*>& getCars();
 	vector<Node*>& getNodes();
 	vector<Way*>& getWays();
+	void addCar(Car*);
+	//deleteCar method
+	//play
+	//stop
 
+
+	void update();
 
 	//Way operator[](int i)const; non possible classe vide
 private :
