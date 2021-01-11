@@ -54,3 +54,13 @@ vector<Way*>& Simulation::getWays()
 	return _ways;
 }
 
+void Simulation::addCar(Car* C)
+{
+	_cars.push_back(C);
+}
+
+void Simulation::update()
+{
+//todo
+}
+
