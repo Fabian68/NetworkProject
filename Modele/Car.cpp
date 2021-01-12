@@ -1,5 +1,4 @@
 #include "Car.h"
-#include <ctime>
 #include <cstdlib>
 
 Car::Car(Node* startingNode, const Wave &waveCom, Way *way, int speed) : _position{startingNode->getX(), startingNode->getY()}, 
@@ -101,10 +100,12 @@ void Car::moveOnTheWay()
 
     if (traveledDistanceOnTheWay() > _way->nodesDistance())
     {
-        if (_startingNode == _way->getNode1()) setPosition(_way->getNode2()->getX(), _way->getNode2()->getY());
-        else setPosition(_way->getNode1()->getX(), _way->getNode1()->getY());
+        Node* endingNode;
+        if (_startingNode == _way->getNode1()) endingNode = _way->getNode2();
+        else endingNode = _way->getNode1();
 
-        _endOfWay = true;
+        setPosition(endingNode->getX(), endingNode->getY());
+        changeRoute(endingNode, _way);
     }
 
     
@@ -112,7 +113,24 @@ void Car::moveOnTheWay()
 
 void Car::changeRoute(Node* endingNode, Way* finishedWay)
 {
+    if (endingNode->getConnectedWays().size() > 1)
+    {
+        int iWay;
+        do
+        {
+            int iWay = rand() * endingNode->getConnectedWays().size();
+        } while (endingNode->getConnectedWays()[iWay]->getId() == finishedWay->getId());
 
+        setWay(endingNode->getConnectedWays()[iWay]);
+    }
+
+    else
+    {
+        // nothing to do ?
+    }
+
+    setStartingNode(endingNode);
+    
 }
 
 double Car::traveledDistanceOnTheWay() const

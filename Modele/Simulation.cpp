@@ -1,4 +1,5 @@
 #include "Simulation.h"
+#include <ctime>
 
 Simulation::Simulation() : _cars(0), _nodes(0), _ways(0)
 {
@@ -69,19 +70,8 @@ void Simulation::update()
 	// move each car
 	for (int i = 0; i < _cars.size(); i++)
 	{
-		// if the car still exists
-		if (_cars[i])
-		{
-			// move it if it is not on the end of the way
-			if(!_cars[i]->endOfWay()) _cars[i]->moveOnTheWay();
-
-			// otherwise change its way
-			else
-			{
-				// choose a random Way which is starting from the ending Node
-				//	A METTRE DANS CAR
-			}
-		}
+		// if the car still exists move it
+		if (_cars[i]) _cars[i]->moveOnTheWay();
 	}
 
 	//todo connections
