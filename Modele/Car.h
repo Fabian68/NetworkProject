@@ -12,11 +12,11 @@ using std::vector;
 class Car
 {
     public :
-        Car(Node* startNode, const Wave &waveCom, Way* way, int speed);
+        Car(Node* startNode, Wave* waveCom, Way* way, int speed);
 
         Point getPosition() const;
 
-        Wave getWaveCommunication() const;
+        Wave* getWaveCommunication() const;
 
         Way* getWay() const;
 
@@ -52,7 +52,7 @@ class Car
 
     private :
         Point _position;
-        Wave _waveCommunication;
+        Wave* _waveCommunication;
         Way* _way;
         int _speed;
         vector<Car*> _connectedCars;

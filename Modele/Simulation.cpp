@@ -16,8 +16,8 @@ Simulation::Simulation() : _cars(0), _nodes(0), _ways(0)
 	_mesh = Mesh(Origine, _meshRadius, _lineSizeMesh, _colSizeMesh);
 	// fill Nodes and Ways
 	_mapping = new Mapping("map.txt", *this);
-	// create cars
-	// todo
+	// create a car without wave
+	_cars.push_back(new Car(_nodes[0], nullptr, _nodes[0]->getConnectedWays()[0], 1));
 }
 Simulation::~Simulation()
 {

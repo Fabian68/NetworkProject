@@ -1,7 +1,7 @@
 #include "Car.h"
 #include <cstdlib>
 
-Car::Car(Node* startingNode, const Wave &waveCom, Way *way, int speed) : _position{startingNode->getX(), startingNode->getY()}, 
+Car::Car(Node* startingNode, Wave* waveCom, Way *way, int speed) : _position{startingNode->getX(), startingNode->getY()}, 
     _waveCommunication{waveCom}, _way{way}, _speed{speed}, _connectedCars(0), _endOfWay{false}, _startingNode{startingNode}
 {
     _connectedCars.reserve(100);
