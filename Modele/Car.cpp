@@ -12,7 +12,7 @@ Point Car::getPosition() const
     return _position;
 }
 
-Wave Car::getWaveCommunication() const
+Wave* Car::getWaveCommunication() const
 {
     return _waveCommunication;
 }
