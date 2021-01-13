@@ -5,6 +5,11 @@
 #include "Wave.h"
 #include "Way.h"
 
+// Il manquait cet include
+#include "Node.h"
+
+#include <cmath>
+
 #include <vector>
 
 using std::vector;
