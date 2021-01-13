@@ -1,6 +1,6 @@
 #include "Hexagon.h"
 #include <algorithm>
-
+#include <math.h>
 
 Hexagon::Hexagon(const Point& center, double radius, std::vector<double> color,double transparance) : _radius{radius}
 {	

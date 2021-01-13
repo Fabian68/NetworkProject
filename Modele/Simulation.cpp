@@ -1,8 +1,11 @@
 #include "Simulation.h"
 #include <ctime>
 
+#include <QDebug>
+
 Simulation::Simulation() : _cars(0), _nodes(0), _ways(0)
 {
+    QTextStream out(stdout);
 	srand(time(NULL));
 
 	_cars.reserve(100);
@@ -12,12 +15,16 @@ Simulation::Simulation() : _cars(0), _nodes(0), _ways(0)
 	_meshRadius = 50;
 	_colSizeMesh = 400;
 	_lineSizeMesh = 400;
+    qDebug() << "Avant Mesh";
 	// 300x300 Hexagones de 50 metres de circonférence
 	_mesh = Mesh(Origine, _meshRadius, _lineSizeMesh, _colSizeMesh);
+    qDebug() << "Après Mesh";
 	// fill Nodes and Ways
 	_mapping = new Mapping("map.txt", *this);
+    qDebug() << "Après Mapping";
 	// create a car without wave
-	_cars.push_back(new Car(_nodes[0], nullptr, _nodes[0]->getConnectedWays()[0], 1));
+    _cars.push_back(new Car(_nodes[0], new Wave(), _nodes[0]->getConnectedWays()[0], 1));
+    qDebug() << "Après Car";
 }
 Simulation::~Simulation()
 {

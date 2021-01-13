@@ -1,4 +1,5 @@
 #include "Way.h"
+#include <math.h>
 
 Way::Way(int id, Node* node1, Node* node2) : _id{ id }, _node1 { node1 }, _node2{ node2 }
 {

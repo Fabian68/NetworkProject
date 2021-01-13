@@ -43,9 +43,9 @@ class Car
 
         void moveTo(const Point &newPosition);
 
-        bool communicating(const Car &OtherCar);
+        bool communicating(const Car* OtherCar);
 
-        void addCarCommunicating(const Car &OtherCar);
+        void addCarCommunicating(Car* OtherCar);
 
         void deleteCarCommunicating();
 

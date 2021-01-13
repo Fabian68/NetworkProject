@@ -1,12 +1,15 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "Modele/Simulation.h"
+#include <QDebug>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
+    qDebug() << "Avant simulation";
     simulation = new Simulation();
+    qDebug() << "Après simulation";
     ui->setupUi(this);
     launched = false;
 }

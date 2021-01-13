@@ -37,7 +37,6 @@ SOURCES += \
     Modele/Node.cpp \
     Modele/Point.cpp \
     Modele/Simulation.cpp \
-    Modele/testFabian.cpp \
     Modele/Wave.cpp \
     Modele/Way.cpp
 
