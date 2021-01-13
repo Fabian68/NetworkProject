@@ -8,7 +8,7 @@
 class Hexagon
 {
 public :
-	Hexagon(const Point& center, double radius, std::vector<double> color = { 0.0,0.0,0.0 },double luminance = 0.0 );
+	Hexagon(const Point& center, double radius, std::vector<double> color = { 0.0,0.0,0.0 },double transparance = 0.0 );
 
 	Point getUp() const;
 
@@ -28,9 +28,9 @@ public :
 
 	void setColor(std::vector<double> color);
 
-	double getLuminance() const;
+	double gettransparance() const;
 
-	void setLuminance(double luminance);
+	void settransparance(double transparance);
 
 	bool contains(const Point& P)const;
 private :
@@ -38,5 +38,5 @@ private :
 	static constexpr double const& PI = 3.14159265358979323846264338327950288419716939937510582097494459230781640628620899862803482534211706798214808651328230664709384460955058223172535940812848111745028410270193852110555964462294895493038196;
 	double _radius;
 	std::vector<double> _color;
-	double _luminance;
+	double _transparance;
 };

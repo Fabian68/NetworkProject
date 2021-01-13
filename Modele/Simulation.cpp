@@ -82,7 +82,7 @@ void Simulation::update()
 	for (int i = 0;i < _mesh.getColSize();i++) {
 		for (int j = 0;j < _lineSizeMesh;j++) {
 			_mesh[i][j].setColor({ 1.0,1.0,1.0,1.0 });
-			_mesh[i][j].setTransparance(1.0);
+			_mesh[i][j].settransparance(1.0);
 			nCarsInOneHexagon = 0;
 			R = 0;G = 0;B = 0;
 			for (int i = 0; i < _cars.size(); i++)
