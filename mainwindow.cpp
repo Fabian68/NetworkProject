@@ -6,7 +6,7 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
-    //simulation = new Simulation();
+    simulation = new Simulation();
     ui->setupUi(this);
     launched = false;
 }

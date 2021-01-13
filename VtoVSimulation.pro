@@ -27,11 +27,34 @@ CONFIG += c++11
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    mapopengl.cpp
+    mapopengl.cpp \
+    Modele/Car.cpp \
+    Modele/Clock.cpp \
+    Modele/Hexagon.cpp \
+    Modele/Mapping.cpp \
+    Modele/Mesh.cpp \
+    Modele/MeshLines.cpp \
+    Modele/Node.cpp \
+    Modele/Point.cpp \
+    Modele/Simulation.cpp \
+    Modele/testFabian.cpp \
+    Modele/Wave.cpp \
+    Modele/Way.cpp
 
 HEADERS += \
         mainwindow.h \
-    mapopengl.h
+    mapopengl.h \
+    Modele/Car.h \
+    Modele/Clock.h \
+    Modele/Hexagon.h \
+    Modele/Mapping.h \
+    Modele/Mesh.h \
+    Modele/MeshLines.h \
+    Modele/Node.h \
+    Modele/Point.h \
+    Modele/Simulation.h \
+    Modele/Wave.h \
+    Modele/Way.h
 
 FORMS += \
         mainwindow.ui
@@ -44,4 +67,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 RESOURCES += \
     resource.qrc
 
-DISTFILES +=
+DISTFILES += \
+    Modele/MainTestCar.txt
