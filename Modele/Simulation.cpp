@@ -7,8 +7,8 @@ Simulation::Simulation() : _cars(0), _nodes(0), _ways(0)
 	_ways.reserve(100);
 	Point Origine = Point(5.0, 5.0);
 	_meshRadius = 50;
-	_colSizeMesh = 300;
-	_lineSizeMesh = 300;
+	_colSizeMesh = 400;
+	_lineSizeMesh = 400;
 	// 300x300 Hexagones de 50 metres de circonférence
 	_mesh = Mesh(Origine, _meshRadius, _lineSizeMesh, _colSizeMesh);
 	_mapping = new Mapping("map.txt", *this);
