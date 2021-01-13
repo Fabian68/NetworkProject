@@ -1,7 +1,7 @@
 #include "Car.h"
 #include <cstdlib>
 
-Car::Car(Node* startingNode, Wave* waveCom, Way *way, int speed) : _position{startingNode->getX(), startingNode->getY()}, 
+Car::Car(Node* startingNode, Wave* waveCom, Way *way, int speed) : _position{startingNode->getX(), startingNode->getY()},
     _waveCommunication{waveCom}, _way{way}, _speed{speed}, _connectedCars(0), _endOfWay{false}, _startingNode{startingNode}
 {
     _connectedCars.reserve(100);
@@ -69,17 +69,49 @@ void Car::moveTo(const Point &newPosition)
     _position = newPosition;
 }
 
+// Fonction permetant de montrer si 2 voitures peuvent communiquer.
+// "il faut et il suffit de montrer que la distance AB soit inférieur  à la somme de leurs deux rayons"
+// Source : "https://fr.answers.yahoo.com/question/index?qid=20130409130107AAIDHhs&guccounter=1&guce_referrer=aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS8&guce_referrer_sig=AQAAANifShU7Imhh7xNuh7ZgUfYFhy2_2COYq-ELZmh9Oo_lFrZttSQqs1A4BPUjzBKUpswmcw7Tj_ZS3tDcgYgihLMhQQLwPkOk3BxDJ0xP3KJyGCB806YrkSx-T5cdnu9yUjUdVyQII-6o-wNvwamHoqfNv13iuUVcQ4xDwHphUK8a"
 bool Car::communicating(const Car &OtherCar)
 {
-    // La voiture peut-elle communiquer avec l'autre ?
-    return true;
+    // (x2 - x1)²
+    // x2 est le x de la OtherCar
+    // x1 est le x de la car "this"
+    double distanceX = pow(OtherCar.getPosition().getX() - this.getPosition().getX(), 2);
+
+    // (y2 - y1)²
+    // y2 est le y de la OtherCar
+    // y1 est le y de la car "this"
+    double distanceY = pow(OtherCar.getPosition().getY() - this.getPosition().getY(), 2);
+
+    // d(A,B)=√(x2 − x1)² + (y2 − y1)²
+    double distancePoints = sqrt(distanceX + distanceY);
+
+    // Somme des rayons
+
+        // Rayon de OtherCar
+        double r_other = OtherCar.getWaveCommunication().getRayon();
+
+        // Rayon de this
+        double r_this = this.getWaveCommunication().getRayon();
+
+    double SommeRayons = r_other + r_this;
+
+    if(distancePoints <= SommeRayons) // <= pour sire si les deux voitures sont à la même position
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }
 
 void Car::addCarCommunicating(const Car &OtherCar)
 {
     if(communicating(OtherCar))
     {
-        // Ajout dans le vecteur
+        _connectedCars.push_back(OtherCar);
     }
 }
 
@@ -89,7 +121,10 @@ void Car::deleteCarCommunicating()
     {
         for(int i = 0 ; i < _connectedCars.size() ; i++)
         {
-            // Test si la voiture en [i] peut communiquer
+            if(!communicating(_connectedCars[i]))
+            {
+                _connectedCars.erase(i);
+            }
         }
     }
 }
@@ -108,7 +143,7 @@ void Car::moveOnTheWay()
         changeRoute(endingNode, _way);
     }
 
-    
+
 }
 
 void Car::changeRoute(Node* endingNode, Way* finishedWay)
@@ -130,7 +165,7 @@ void Car::changeRoute(Node* endingNode, Way* finishedWay)
     }
 
     setStartingNode(endingNode);
-    
+
 }
 
 double Car::traveledDistanceOnTheWay() const
