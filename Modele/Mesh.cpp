@@ -31,6 +31,9 @@ Mesh::Mesh()
 {
 }
 
+int Mesh::getColSize()const {
+	return _colSize;
+}
 MeshLines Mesh::operator[](int i) const
 {
 	return _column[i];

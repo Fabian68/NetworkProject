@@ -73,6 +73,36 @@ void Simulation::update()
 		// if the car still exists move it
 		if (_cars[i]) _cars[i]->moveOnTheWay();
 	}
+	double R;
+	double G;
+	double B;
+
+	int nCarsInOneHexagon;
+
+	for (int i = 0;i < _mesh.getColSize();i++) {
+		for (int j = 0;j < _lineSizeMesh;j++) {
+			_mesh[i][j].setColor({ 1.0,1.0,1.0 });
+			_mesh[i][j].setLuminance(1.0);
+			nCarsInOneHexagon = 0;
+			R = 0;G = 0;B = 0;
+			for (int i = 0; i < _cars.size(); i++)
+			{
+				
+				if (_cars[i]) {
+					if (_mesh[i][j].contains(_cars[i]->getPosition())) {
+						nCarsInOneHexagon++;
+						R += (double)(_cars[i]->getWaveCommunication()->getFrequency());
+						G += (double)(_cars[i]->getWaveCommunication()->getRayon());
+						B += (double)(_cars[i]->getWaveCommunication()->getStrength());
+					}
+				}
+			}
+			if (nCarsInOneHexagon > 0) {
+				//calcul rgb et luminance
+				R = (R / 255.0)  ;
+			}
+		}
+	}
 
 	//todo connections
 }
