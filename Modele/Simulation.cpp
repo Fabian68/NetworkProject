@@ -1,7 +1,10 @@
 #include "Simulation.h"
+#include <ctime>
 
 Simulation::Simulation() : _cars(0), _nodes(0), _ways(0)
 {
+	srand(time(NULL));
+
 	_cars.reserve(100);
 	_nodes.reserve(100);
 	_ways.reserve(100);
@@ -11,7 +14,10 @@ Simulation::Simulation() : _cars(0), _nodes(0), _ways(0)
 	_lineSizeMesh = 400;
 	// 300x300 Hexagones de 50 metres de circonférence
 	_mesh = Mesh(Origine, _meshRadius, _lineSizeMesh, _colSizeMesh);
+	// fill Nodes and Ways
 	_mapping = new Mapping("map.txt", *this);
+	// create a car without wave
+	_cars.push_back(new Car(_nodes[0], nullptr, _nodes[0]->getConnectedWays()[0], 1));
 }
 Simulation::~Simulation()
 {
@@ -54,13 +60,20 @@ vector<Way*>& Simulation::getWays()
 	return _ways;
 }
 
-void Simulation::addCar(Car* C)
+void Simulation::addCar(Car* car)
 {
-	_cars.push_back(C);
+	_cars.push_back(car);
 }
 
 void Simulation::update()
 {
-//todo
+	// move each car
+	for (int i = 0; i < _cars.size(); i++)
+	{
+		// if the car still exists move it
+		if (_cars[i]) _cars[i]->moveOnTheWay();
+	}
+
+	//todo connections
 }
 
