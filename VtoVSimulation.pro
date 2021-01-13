@@ -26,10 +26,12 @@ CONFIG += c++11
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp
+        mainwindow.cpp \
+    mapopengl.cpp
 
 HEADERS += \
-        mainwindow.h
+        mainwindow.h \
+    mapopengl.h
 
 FORMS += \
         mainwindow.ui
@@ -38,3 +40,8 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    resource.qrc
+
+DISTFILES +=

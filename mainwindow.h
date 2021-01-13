@@ -2,6 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "mapopengl.h"
+#include "Modele/Simulation.h"
 
 namespace Ui {
 class MainWindow;
@@ -33,7 +35,7 @@ private slots:
     void on_pushButton_clicked();
 
 private:
-    //Simulation simulation;
+    Simulation* simulation;
 
     bool launched;
 
