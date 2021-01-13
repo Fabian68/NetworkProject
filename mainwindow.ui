@@ -494,7 +494,7 @@ QPushButton:default {
 }</string>
       </property>
       <property name="text">
-       <string>Enlever Fond</string>
+       <string>Enlever Carte</string>
       </property>
      </widget>
     </item>

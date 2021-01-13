@@ -2,6 +2,9 @@
 #include "ui_mainwindow.h"
 #include "Modele/Simulation.h"
 #include <QDebug>
+#include <QTimer>
+#include <unistd.h>
+#include <stdio.h>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -15,6 +18,11 @@ MainWindow::MainWindow(QWidget *parent) :
     launched = false;
     displayMesh = true;
     displayMap = true;
+
+    updater = new QTimer(this);
+    connect( updater,SIGNAL(timeout()), this, SLOT(&MainWindow::update));
+    updater->start(400);
+
 }
 
 MainWindow::~MainWindow()
@@ -30,6 +38,10 @@ void MainWindow::on_addV_clicked()
 void MainWindow::on_removeV_clicked()
 {
 
+}
+
+void MainWindow::update(){
+    ui->openGlWid->update();
 }
 
 void MainWindow::on_displayMap_clicked()
@@ -61,12 +73,12 @@ void MainWindow::on_displayMesh_clicked()
 
 void MainWindow::on_zoomOut_clicked()
 {
-
+    ui->openGlWid->lessMultiplier();
 }
 
 void MainWindow::on_zoomIn_clicked()
 {
-
+    ui->openGlWid->addMultiplier();
 }
 
 void MainWindow::on_openGlWid_aboutToResize()

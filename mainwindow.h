@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QTimer>
 #include "mapopengl.h"
 #include "Modele/Simulation.h"
 
@@ -34,14 +35,19 @@ private slots:
 
     void on_pushButton_clicked();
 
+    void update();
+
 private:
     Simulation* simulation;
+
+    QTimer* updater;
 
     bool launched;
     bool displayMap;
     bool displayMesh;
 
     Ui::MainWindow *ui;
+
 };
 
 #endif // MAINWINDOW_H

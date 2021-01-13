@@ -20,7 +20,7 @@ Simulation::Simulation() : _cars(0), _nodes(0), _ways(0)
 	_mesh = Mesh(Origine, _meshRadius, _lineSizeMesh, _colSizeMesh);
     qDebug() << "Après Mesh";
 	// fill Nodes and Ways
-	_mapping = new Mapping("map.txt", *this);
+    _mapping = new Mapping(":/text/resource/map.txt", *this);
     qDebug() << "Après Mapping";
 	// create a car without wave
     //_cars.push_back(new Car(_nodes[0], new Wave(), _nodes[0]->getConnectedWays()[0], 1));

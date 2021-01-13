@@ -19,6 +19,7 @@ public:
     void lessMultiplier();
 private:
     QImage* bg;
+    QImage* car;
     Simulation* simulation;
     bool drawMesh = true;
     bool drawMap = true;
