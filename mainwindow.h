@@ -38,6 +38,8 @@ private:
     Simulation* simulation;
 
     bool launched;
+    bool displayMap;
+    bool displayMesh;
 
     Ui::MainWindow *ui;
 };

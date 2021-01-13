@@ -13,7 +13,7 @@ class Node : public Point
         Node(int id, int x, int y);
         virtual ~Node();
         int getId() const;
-        vector<Way*> getConnectedWays();
+        vector<Way*>& getConnectedWays();
 
     private:
         int _id;

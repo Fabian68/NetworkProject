@@ -20,7 +20,7 @@ int Node::getId() const
 }
 
 
-vector<Way*> Node::getConnectedWays()
+vector<Way*>& Node::getConnectedWays()
 {
     return _connectedWays;
 }

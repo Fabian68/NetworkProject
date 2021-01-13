@@ -154,7 +154,7 @@ void Car::changeRoute(Node* endingNode, Way* finishedWay)
         int iWay;
         do
         {
-            int iWay = rand() % endingNode->getConnectedWays().size();
+            iWay = rand() % endingNode->getConnectedWays().size();
         } while (endingNode->getConnectedWays()[iWay]->getId() == finishedWay->getId());
 
         setWay(endingNode->getConnectedWays()[iWay]);

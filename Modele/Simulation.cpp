@@ -23,7 +23,7 @@ Simulation::Simulation() : _cars(0), _nodes(0), _ways(0)
 	_mapping = new Mapping("map.txt", *this);
     qDebug() << "Après Mapping";
 	// create a car without wave
-    _cars.push_back(new Car(_nodes[0], new Wave(), _nodes[0]->getConnectedWays()[0], 1));
+    //_cars.push_back(new Car(_nodes[0], new Wave(), _nodes[0]->getConnectedWays()[0], 1));
     qDebug() << "Après Car";
 }
 Simulation::~Simulation()

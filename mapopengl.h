@@ -1,22 +1,28 @@
 #ifndef MAPOPENGL_H
 #define MAPOPENGL_H
 
-//#include "modele/simulation.h"
+#include "Modele/simulation.h"
 #include <QOpenGLWidget>
 
 class MapOpenGL : public QOpenGLWidget
 {
 public:
-    MapOpenGL( QWidget* parent = NULL);
+    MapOpenGL( QWidget* parent = nullptr);
 
     virtual void initializeGL();
     virtual void paintGL();
     virtual void resizeGL( int width, int heigh);
-
-    //void setSimulation( Simulation simul);
+    void setDrawMesh( bool mesh);
+    void setDrawMap( bool map);
+    void setSimulation( Simulation* simul);
+    void addMultiplier();
+    void lessMultiplier();
 private:
     QImage* bg;
-    //Simulation simulation;
+    Simulation* simulation;
+    bool drawMesh = true;
+    bool drawMap = true;
+    int multiplier = 1;
 };
 
 #endif // MAPOPENGL_H
