@@ -2,13 +2,13 @@
 #include <algorithm>
 
 
-Hexagon::Hexagon(const Point& center, double radius, std::vector<double> color,double luminance) : _radius{radius}
+Hexagon::Hexagon(const Point& center, double radius, std::vector<double> color,double transparance) : _radius{radius}
 {	
 
 	// http://www.nongnu.org/pyformex/doc-1.0/ref/opengl.colors.html#module-opengl.colors
 	// conversions couleurs opengl dans les deux sens
 	_color = color;
-	_luminance = luminance;
+	_transparance = transparance;
 	double numPoints = 6.0;
 	_listPoint.reserve(static_cast<int> (numPoints));
 	//radian
@@ -76,14 +76,14 @@ void Hexagon::setColor(std::vector<double> color)
 	_color = color;
 }
 
-double Hexagon::getLuminance()const
+double Hexagon::gettransparance()const
 {
-	return _luminance;
+	return _transparance;
 }
 
-void Hexagon::setLuminance(double luminance)
+void Hexagon::settransparance(double transparance)
 {
-	_luminance = luminance;
+	_transparance = transparance;
 }
 
 bool Hexagon::contains(const Point& P) const
