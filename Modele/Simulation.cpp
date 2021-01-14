@@ -7,7 +7,7 @@
 
 Simulation::Simulation() : _cars(0), _nodes(0), _ways(0), speedSimulation(0.1)
 {
-    QTextStream out(stdout);
+ //   QTextStream out(stdout);
 	srand(time(NULL));
 
 	_cars.reserve(100);
@@ -29,6 +29,7 @@ Simulation::Simulation() : _cars(0), _nodes(0), _ways(0), speedSimulation(0.1)
     // create an unique car
     addCar();
     qDebug() << "Fin constructeur Simulation";
+	update();
 }
 Simulation::~Simulation()
 {
@@ -77,7 +78,7 @@ Node* Simulation::randomNode()
     return _nodes[iNode];
 }
 
-Car* Simulation::addCar()
+void Simulation::addCar()
 {
     Node* node= randomNode();
     _cars.push_back(new Car(node, new Wave(), node->getConnectedWays()[0], speedSimulation));
@@ -102,7 +103,7 @@ void Simulation::update()
 	}
 
     // SUITE BUGUEE, CRASH
-    /*
+    
 	double R;
 	double G;
 	double B;
@@ -133,7 +134,7 @@ void Simulation::update()
 			}
 		}
 	}
-    */
+    
 	//todo connections
 }
 

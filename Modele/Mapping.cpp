@@ -5,7 +5,7 @@
 #include <cstdlib>
 #include <fstream>
 #include "Simulation.h"
-#include <QDebug>
+//#include <QDebug>
 
 using std::string;
 
@@ -20,7 +20,7 @@ bool Mapping::extractMapForSimulation(Simulation& simulation)
 {
 	std::ifstream mapFile{ _mapFileName };
     if (!mapFile.is_open()){
-        qDebug() << "Error map file not found";
+        //qDebug() << "Error map file not found";
         return false;
     }
 	// Fill Node and Way vectors with the map file

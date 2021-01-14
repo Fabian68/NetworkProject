@@ -20,7 +20,7 @@ public :
 	vector<Node*>& getNodes();
 	vector<Way*>& getWays();
     Node* randomNode();
-    Car* addCar();
+    void addCar();
     void removeACar();
 	void print() const;
 	//play
