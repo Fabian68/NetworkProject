@@ -13,7 +13,7 @@ Mesh::Mesh(const Point& FirstCenter, double radius, int lineSize, int colSize) :
 
 	double yPair = FirstCenter.getY()+3*radius;
 	double yImpair = line1[0].getUpRight().getY()+radius;
-
+	_lineSize = lineSize;
 	for (int i = 1;i < colSize;i++) {
 		if (i % 2 == 0) {
 			_column.push_back(MeshLines(Point(xPair, yPair), radius, lineSize));
@@ -37,4 +37,16 @@ int Mesh::getColSize()const {
 MeshLines Mesh::operator[](int i) const
 {
 	return _column[i];
+}
+
+
+std::vector<Hexagon> Mesh::getHexagons() {
+	std::vector<Hexagon> hexagons;
+	hexagons.reserve(_colSize * _lineSize);
+	for (int i = 0;i < _colSize;i++) {
+		for (int j = 0;j < _lineSize;j++) {
+			hexagons.push_back(_column[i][j]);
+		}
+	}
+	return hexagons;
 }
