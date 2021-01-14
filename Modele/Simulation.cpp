@@ -41,11 +41,7 @@ Simulation::~Simulation()
 
 	delete _mapping;
 }
-/*
-Car Simulation::operator[](int i) const
-{
-	return *_cars[i];
-}*/
+
 
 int Simulation::getNumberOfCars() const
 {
