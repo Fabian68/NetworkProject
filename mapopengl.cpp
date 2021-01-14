@@ -46,7 +46,9 @@ void MapOpenGL::paintGL(){
     if(drawMesh){
         /*p.drawLine(QLineF(10, 10, 500, 500));
          p.drawLine(QLineF(500, 10, 10, 500));*/
-        //for(int i=0; i<simulation->getMesh()) IDK
+        //for(int i=0; i < simulation->getMesh().getColSize();){
+
+
 
     }
 

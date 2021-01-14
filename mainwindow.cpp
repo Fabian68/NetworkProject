@@ -10,7 +10,6 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
 {
     qDebug() << "Avant simulation";
     simulation = new Simulation();
-    qDebug() << "Après simulation";
     ui->setupUi(this);
     ui->openGlWid->setSimulation(simulation);
     launched = false;
