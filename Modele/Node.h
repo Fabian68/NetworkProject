@@ -14,6 +14,7 @@ class Node : public Point
         virtual ~Node();
         int getId() const;
         vector<Way*>& getConnectedWays();
+        void print() const;
 
     private:
         int _id;

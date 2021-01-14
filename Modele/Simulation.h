@@ -10,25 +10,25 @@ using std::vector;
 
 class Simulation
 {
-	
+
 public :
 	Simulation();
 	~ Simulation();
-	//Car operator[](int i)const;
 	int getNumberOfCars()const;
 	Mesh getMesh();
 	vector<Car*>& getCars();
 	vector<Node*>& getNodes();
 	vector<Way*>& getWays();
-	void addCar(Car* car);
-	//deleteCar method
+    Node* randomNode();
+    Car* addCar();
+    void removeACar();
+	void print() const;
 	//play
 	//stop
 
 
 	void update();
 
-	//Way operator[](int i)const; non possible classe vide
 private :
 	vector<Car*> _cars;
 	vector<Node*> _nodes;
@@ -38,6 +38,7 @@ private :
 	int _meshRadius;
 	int _colSizeMesh;
 	int _lineSizeMesh;
+    double speedSimulation;
 
 	Mapping* _mapping;
 };

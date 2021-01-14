@@ -1,9 +1,11 @@
 #include "Simulation.h"
 #include <ctime>
-
+#include <string>
 #include <QDebug>
+#include <QDir>
+#include <cstdlib>
 
-Simulation::Simulation() : _cars(0), _nodes(0), _ways(0)
+Simulation::Simulation() : _cars(0), _nodes(0), _ways(0), speedSimulation(0.1)
 {
     QTextStream out(stdout);
 	srand(time(NULL));
@@ -15,26 +17,28 @@ Simulation::Simulation() : _cars(0), _nodes(0), _ways(0)
 	_meshRadius = 50;
 	_colSizeMesh = 400;
 	_lineSizeMesh = 400;
-    qDebug() << "Avant Mesh";
-	// 300x300 Hexagones de 50 metres de circonférence
+
+	// 300x300 Hexagones de 50 metres de circonference
 	_mesh = Mesh(Origine, _meshRadius, _lineSizeMesh, _colSizeMesh);
-    qDebug() << "Après Mesh";
+
 	// fill Nodes and Ways
-    _mapping = new Mapping(":/text/resource/map.txt", *this);
-    qDebug() << "Après Mapping";
-	// create a car without wave
-    //_cars.push_back(new Car(_nodes[0], new Wave(), _nodes[0]->getConnectedWays()[0], 1));
-    qDebug() << "Après Car";
+    qDebug()<<"Path de base : "<<QDir::currentPath();
+    // LE PATH DE BASE EST DEHORS DU PROJET ! IL FAUT EN SORTIR ET ALLER DANS LE DOSSIER DU PROJET POUR LIRE LE FICHIER
+    _mapping = new Mapping("../NetworkProject/map.txt", *this);
+
+    // create an unique car
+    addCar();
+    qDebug() << "Fin constructeur Simulation";
 }
 Simulation::~Simulation()
 {
-	// call the Way destructor for each connected way in the node
-	for (int i = 0; i < _nodes.size(); i++)
-	{
-		if (_nodes[i]) delete _nodes[i];
-	}
+	for (int i = 0; i < _nodes.size(); i++) delete _nodes[i];
 
-	//todos car etc
+	for (int i = 0; i < _ways.size(); i++) delete _ways[i];
+
+	for (int i = 0; i < _cars.size(); i++) delete _cars[i];
+
+	delete _mapping;
 }
 /*
 Car Simulation::operator[](int i) const
@@ -67,9 +71,25 @@ vector<Way*>& Simulation::getWays()
 	return _ways;
 }
 
-void Simulation::addCar(Car* car)
+Node* Simulation::randomNode()
 {
-	_cars.push_back(car);
+    int iNode= rand() % _nodes.size();
+    return _nodes[iNode];
+}
+
+Car* Simulation::addCar()
+{
+    Node* node= randomNode();
+    _cars.push_back(new Car(node, new Wave(), node->getConnectedWays()[0], speedSimulation));
+}
+
+void Simulation::removeACar()
+{
+    if(_cars.size()>0)
+    {
+        delete _cars[_cars.size()-1];
+        _cars.pop_back();
+    }
 }
 
 void Simulation::update()
@@ -80,6 +100,9 @@ void Simulation::update()
 		// if the car still exists move it
 		if (_cars[i]) _cars[i]->moveOnTheWay();
 	}
+
+    // SUITE BUGUEE, CRASH
+    /*
 	double R;
 	double G;
 	double B;
@@ -110,7 +133,15 @@ void Simulation::update()
 			}
 		}
 	}
-
+    */
 	//todo connections
 }
 
+void Simulation::print() const
+{
+	/*for (int i = 0; i < _nodes.size(); i++) _nodes[i]->print();
+	cout << endl;
+	for (int i = 0; i < _ways.size(); i++) _ways[i]->print();
+	cout << "sizes nodes " << _nodes.size() << " ways " << _ways.size();
+	*/
+}

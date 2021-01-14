@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>958</width>
+    <width>1200</width>
     <height>603</height>
    </rect>
   </property>
@@ -1126,8 +1126,8 @@ QPushButton:default {
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>958</width>
-     <height>20</height>
+     <width>1200</width>
+     <height>21</height>
     </rect>
    </property>
   </widget>

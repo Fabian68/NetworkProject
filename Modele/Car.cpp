@@ -2,10 +2,18 @@
 #include <cstdlib>
 #include<vector>
 
-Car::Car(Node* startingNode, Wave* waveCom, Way *way, int speed) : _position{startingNode->getX(), startingNode->getY()},
+Car::Car(Node* startingNode, Wave* waveCom, Way *way, double speed) : _position{startingNode->getX(), startingNode->getY()},
     _waveCommunication{waveCom}, _way{way}, _speed{speed}, _connectedCars(0), _endOfWay{false}, _startingNode{startingNode}
 {
     _connectedCars.reserve(100);
+}
+
+Car::~Car()
+{
+    delete _waveCommunication;
+    _startingNode = nullptr;
+    _way = nullptr;
+    for (int i = 0; i < _connectedCars.size(); i++) _connectedCars[i] = nullptr;
 }
 
 Point Car::getPosition() const

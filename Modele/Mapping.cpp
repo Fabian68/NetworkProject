@@ -20,7 +20,7 @@ bool Mapping::extractMapForSimulation(Simulation& simulation)
 {
 	std::ifstream mapFile{ _mapFileName };
     if (!mapFile.is_open()){
-        qDebug() << "File couldn't open";
+        qDebug() << "Error map file not found";
         return false;
     }
 	// Fill Node and Way vectors with the map file

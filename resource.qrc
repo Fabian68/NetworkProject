@@ -2,6 +2,7 @@
     <qresource prefix="/:">
         <file>resource/mulhouse.PNG</file>
         <file>resource/voiture.png</file>
+        <file>resource/map.txt</file>
     </qresource>
     <qresource prefix="/text">
         <file>resource/map.txt</file>

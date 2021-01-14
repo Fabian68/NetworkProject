@@ -1,5 +1,9 @@
 #include "Way.h"
-#include <math.h>
+#include <cmath>
+#include <iostream>
+
+using std::cout;
+using std::endl;
 
 Way::Way(int id, Node* node1, Node* node2) : _id{ id }, _node1 { node1 }, _node2{ node2 }
 {
@@ -10,8 +14,8 @@ Way::Way(int id, Node* node1, Node* node2) : _id{ id }, _node1 { node1 }, _node2
 
 Way::~Way()
 {
-	if(_node1) delete _node1;
-	if(_node2) delete _node2;
+	_node1 = nullptr;
+	_node2 = nullptr;
 }
 
 int Way::getId() const
@@ -48,6 +52,11 @@ double Way::nodesDistance() const
 {
 	return sqrt((_node1->getX()-_node2->getX()) * (_node1->getX()-_node2->getX()) +
 				(_node1->getY()-_node2->getY()) * (_node1->getY()-_node2->getY()));
+}
+
+void Way::print() const
+{
+	//cout << "way " << _id << " : node1 " << _node1->getId() << ", node2 " << _node2->getId() << endl;
 }
 
 /*

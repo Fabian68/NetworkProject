@@ -6,9 +6,7 @@
 #include <unistd.h>
 #include <stdio.h>
 
-MainWindow::MainWindow(QWidget *parent) :
-    QMainWindow(parent),
-    ui(new Ui::MainWindow)
+MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow)
 {
     qDebug() << "Avant simulation";
     simulation = new Simulation();
@@ -19,28 +17,38 @@ MainWindow::MainWindow(QWidget *parent) :
     displayMesh = true;
     displayMap = true;
 
+    /*
     updater = new QTimer(this);
-    connect( updater,SIGNAL(timeout()), this, SLOT(&MainWindow::update));
-    updater->start(400);
-
+    connect( updater, SIGNAL(timeout()), this, SLOT(&MainWindow::update));
+    updater->start(400);*/ //  bidouille
+    updater = new QTimer(this);
+    updater->setInterval(10);
+    updater->start();
+    connect( updater, SIGNAL(timeout()), this, SLOT(&MainWindow::update));
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+    delete simulation;
+}
+
+void MainWindow::update(){
+    //Sleep(11); bidouille
+    if(launched) simulation->update();
+    ui->openGlWid->update();
+
 }
 
 void MainWindow::on_addV_clicked()
 {
-
+    simulation->addCar();
+    ui->openGlWid->update();
 }
 
 void MainWindow::on_removeV_clicked()
 {
-
-}
-
-void MainWindow::update(){
+    simulation->removeACar();
     ui->openGlWid->update();
 }
 
@@ -55,6 +63,7 @@ void MainWindow::on_displayMap_clicked()
         QPushButton* buttonSender = qobject_cast<QPushButton*>(sender());
         buttonSender->setText("Afficher Carte");
     }
+    ui->openGlWid->update();
 }
 
 
@@ -69,16 +78,20 @@ void MainWindow::on_displayMesh_clicked()
         QPushButton* buttonSender = qobject_cast<QPushButton*>(sender());
         buttonSender->setText("Afficher Maille");
     }
+
+    ui->openGlWid->update();
 }
 
 void MainWindow::on_zoomOut_clicked()
 {
-    ui->openGlWid->lessMultiplier();
+    ui->openGlWid->decreaseZoom();
+    ui->openGlWid->update();
 }
 
 void MainWindow::on_zoomIn_clicked()
 {
-    ui->openGlWid->addMultiplier();
+    ui->openGlWid->increaseZoom();
+    ui->openGlWid->update();
 }
 
 void MainWindow::on_openGlWid_aboutToResize()
@@ -97,4 +110,7 @@ void MainWindow::on_pushButton_clicked()
         QPushButton* buttonSender = qobject_cast<QPushButton*>(sender());
         buttonSender->setText("Lancer");
     }
+    // TODO A ENLEVER
+    simulation->update();
+    ui->openGlWid->update();
 }

@@ -15,6 +15,7 @@ public :
 	int slopeY(Node* startingNode) const;
 	//double slopeCoefficient() const;
 	double nodesDistance() const;
+	void print() const;
 
 private :
 	int _id;
