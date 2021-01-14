@@ -7,7 +7,6 @@
 
 Simulation::Simulation() : _cars(0), _nodes(0), _ways(0), speedSimulation(0.1)
 {
- //   QTextStream out(stdout);
 	srand(time(NULL));
 
 	_cars.reserve(100);
@@ -28,8 +27,6 @@ Simulation::Simulation() : _cars(0), _nodes(0), _ways(0), speedSimulation(0.1)
 
     // create an unique car
     addCar();
-    qDebug() << "Fin constructeur Simulation";
-	update();
 }
 Simulation::~Simulation()
 {
@@ -99,7 +96,7 @@ void Simulation::update()
 	}
 
     // SUITE BUGUEE, CRASH
-    
+
 	double R;
 	double G;
 	double B;
@@ -109,7 +106,7 @@ void Simulation::update()
 	for (int i = 0;i < _mesh.getColSize();i++) {
 		for (int j = 0;j < _lineSizeMesh;j++) {
 			_mesh[i][j].setColor({ 1.0,1.0,1.0,1.0 });
-			_mesh[i][j].settransparance(1.0);
+            _mesh[i][j].settransparance(0.0);
 			nCarsInOneHexagon = 0;
 			R = 0;G = 0;B = 0;
 			for (int i = 0; i < _cars.size(); i++)
@@ -129,7 +126,7 @@ void Simulation::update()
 				R = (R / 255.0)  ;
 			}
 		}
-	}
+    }
     
 	//todo connections
 }

@@ -8,7 +8,6 @@
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow)
 {
-    qDebug() << "Avant simulation";
     simulation = new Simulation();
     ui->setupUi(this);
     ui->openGlWid->setSimulation(simulation);
@@ -16,14 +15,10 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     displayMesh = true;
     displayMap = true;
 
-    /*
     updater = new QTimer(this);
-    connect( updater, SIGNAL(timeout()), this, SLOT(&MainWindow::update));
-    updater->start(400);*/ //  bidouille
-    updater = new QTimer(this);
-    updater->setInterval(10);
+    updater->setInterval(500);
     updater->start();
-    connect( updater, SIGNAL(timeout()), this, SLOT(&MainWindow::update));
+    connect( updater, SIGNAL(timeout()), this, SLOT(update()));
 }
 
 MainWindow::~MainWindow()
@@ -33,7 +28,6 @@ MainWindow::~MainWindow()
 }
 
 void MainWindow::update(){
-    //Sleep(11); bidouille
     if(launched) simulation->update();
     ui->openGlWid->update();
 
@@ -62,6 +56,7 @@ void MainWindow::on_displayMap_clicked()
         QPushButton* buttonSender = qobject_cast<QPushButton*>(sender());
         buttonSender->setText("Afficher Carte");
     }
+    ui->openGlWid->setDrawMap(displayMap);
     ui->openGlWid->update();
 }
 
@@ -77,7 +72,7 @@ void MainWindow::on_displayMesh_clicked()
         QPushButton* buttonSender = qobject_cast<QPushButton*>(sender());
         buttonSender->setText("Afficher Maille");
     }
-
+    ui->openGlWid->setDrawMesh(displayMesh);
     ui->openGlWid->update();
 }
 
@@ -109,7 +104,4 @@ void MainWindow::on_pushButton_clicked()
         QPushButton* buttonSender = qobject_cast<QPushButton*>(sender());
         buttonSender->setText("Lancer");
     }
-    // TODO A ENLEVER
-    simulation->update();
-    ui->openGlWid->update();
 }

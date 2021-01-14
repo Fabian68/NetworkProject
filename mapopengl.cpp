@@ -31,7 +31,6 @@ void MapOpenGL::decreaseZoom(){
 }
 
 void MapOpenGL::paintGL(){
-
     QPainter p(this);
     p.setPen(Qt::white);
 
@@ -44,12 +43,13 @@ void MapOpenGL::paintGL(){
 
     //draw the mesh
     if(drawMesh){
-        /*p.drawLine(QLineF(10, 10, 500, 500));
-         p.drawLine(QLineF(500, 10, 10, 500));*/
-        //for(int i=0; i < simulation->getMesh().getColSize();){
-
-
-
+        std::vector<Hexagon> hexagons = simulation->getMesh().getHexagons();
+        for(int i=0; i < hexagons.size(); i++){
+            for(int j=0; j < 5; j++){
+                //p.setPen(QColor( hexagons[i].getColor()[0]*255, hexagons[i].getColor()[1]*255, hexagons[i].getColor()[2]*255, hexagons[i].gettransparance()*255));
+                p.drawLine(QLineF( hexagons[i][j].getX() * zoom, hexagons[i][j].getY() * zoom, hexagons[i][j+1].getX()*zoom,hexagons[i][j+1].getY()*zoom));
+            }
+        }
     }
 
     //Draw the nodes
