@@ -96,7 +96,7 @@ void Simulation::update()
 	}
 
     // SUITE BUGUEE, CRASH
-
+	/*
 	double R;
 	double G;
 	double B;
@@ -127,7 +127,7 @@ void Simulation::update()
 			}
 		}
     }
-    
+    */
 	//todo connections
 }
 

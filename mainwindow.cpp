@@ -30,7 +30,6 @@ MainWindow::~MainWindow()
 void MainWindow::update(){
     if(launched) simulation->update();
     ui->openGlWid->update();
-
 }
 
 void MainWindow::on_addV_clicked()
